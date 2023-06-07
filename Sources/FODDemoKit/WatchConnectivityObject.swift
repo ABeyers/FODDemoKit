@@ -52,7 +52,7 @@ public class WatchConnectivityObject : NSObject, ObservableObject {
             .assign(to: &self.$workoutEnded)
     }
     
-    func activate () {
+   public func activate () {
         // activate the WatchConnectivity session
         try! self.connectivityObserver.activate()
     }
