@@ -8,7 +8,7 @@
 import SwiftUI
 import SundialKit
 
-@objc(WatchConnectivityObject) class WatchConnectivityObject : NSObject, ObservableObject {
+public class WatchConnectivityObject : NSObject, ObservableObject {
     
     // our ConnectivityObserver
     let connectivityObserver = ConnectivityObserver()
@@ -61,7 +61,7 @@ import SundialKit
         self.connectivityObserver.sendingMessageSubject.send(content.message())
     }
     
-    @objc func setReactString() {
+    func setReactString() {
         reactRecieved = "SUCCESS"
     }
 }
