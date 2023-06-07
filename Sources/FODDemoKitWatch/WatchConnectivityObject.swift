@@ -8,7 +8,7 @@
 import SwiftUI
 import SundialKit
 
-class WatchConnectivityObject : ObservableObject {
+public class WatchConnectivityObject : ObservableObject {
     
     // our ConnectivityObserver
     
@@ -42,12 +42,12 @@ class WatchConnectivityObject : ObservableObject {
             .assign(to: &self.$messageFromPhone)
     }
     
-    func activate () {
+  public  func activate () {
         // activate the WatchConnectivity session
         try! self.connectivityObserver.activate()
     }
     
-    func endWorkout() {
+   public func endWorkout() {
         workoutInfo = nil
         self.connectivityObserver.sendingMessageSubject.send(["workoutEnded" : ""])
     }
