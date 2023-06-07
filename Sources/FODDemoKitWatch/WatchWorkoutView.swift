@@ -13,6 +13,8 @@ public struct WatchWorkoutView: View {
     @StateObject var connectivityObject = WatchConnectivityObject()
     @StateObject var workoutManager = WorkoutManager()
     @State private var isActive = false
+  
+    public init() {}
     
     public var body: some View {
         VStack {
