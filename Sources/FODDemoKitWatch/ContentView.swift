@@ -9,12 +9,12 @@ import SwiftUI
 import HealthKit
 
 @available(iOS 16.0, *)
-struct ContentView: View {
+public struct WatchWorkoutView: View {
     @StateObject var connectivityObject = WatchConnectivityObject()
     @StateObject var workoutManager = WorkoutManager()
     @State private var isActive = false
     
-    var body: some View {
+    public var body: some View {
         VStack {
             if let workoutInfo = connectivityObject.workoutInfo {
                 NavigationStack {
@@ -54,10 +54,10 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         return Group {
-            ContentView()
+            WatchWorkoutView()
                 .previewDevice("Apple Watch Series 5 - 44mm")
             
-            ContentView()
+            WatchWorkoutView()
                 .previewDevice("Apple Watch Series 5 - 40mm")
         }
     }
