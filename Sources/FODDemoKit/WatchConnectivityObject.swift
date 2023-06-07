@@ -25,7 +25,7 @@ public class WatchConnectivityObject : NSObject, ObservableObject {
     @Published var workoutInfo : WorkoutInfo?
     @Published var reactRecieved: String = ""
     
-    override init () {
+    public override init () {
         super.init()
         // set the isReachable changes to our published property
         connectivityObserver
