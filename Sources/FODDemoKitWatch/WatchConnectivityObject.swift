@@ -18,7 +18,7 @@ public class WatchConnectivityObject : ObservableObject {
     let messageDecoder = MessageDecoder(messagableTypes: [WorkoutInfo.self])
     
     @Published var workoutInfo : WorkoutInfo?
-    @Published var messageFromPhone : String = "NO MESSAGE"
+    @Published public var messageFromPhone : String = "NO MESSAGE"
     
     public override init () {
         super.init()
