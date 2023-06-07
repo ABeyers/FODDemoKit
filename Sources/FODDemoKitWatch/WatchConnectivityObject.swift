@@ -16,11 +16,12 @@ public class WatchConnectivityObject : ObservableObject {
     
     // create a `MessageDecoder` which can decode our new `WorkoutInfo` type
     let messageDecoder = MessageDecoder(messagableTypes: [WorkoutInfo.self])
-
+    
     @Published var workoutInfo : WorkoutInfo?
     @Published var messageFromPhone : String = "NO MESSAGE"
     
-    init () {
+    public override init () {
+        super.init()
         connectivityObserver
             .messageReceivedPublisher
         // get the ``ConnectivityReceiveResult/message`` part of the ``ConnectivityReceiveResult``
@@ -42,12 +43,12 @@ public class WatchConnectivityObject : ObservableObject {
             .assign(to: &self.$messageFromPhone)
     }
     
-  public  func activate () {
+    public  func activate () {
         // activate the WatchConnectivity session
         try! self.connectivityObserver.activate()
     }
     
-   public func endWorkout() {
+    public func endWorkout() {
         workoutInfo = nil
         self.connectivityObserver.sendingMessageSubject.send(["workoutEnded" : ""])
     }
