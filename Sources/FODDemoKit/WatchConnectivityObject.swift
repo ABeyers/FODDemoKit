@@ -57,7 +57,7 @@ public class WatchConnectivityObject : NSObject, ObservableObject {
         try! self.connectivityObserver.activate()
     }
     
-    func sendData(content: WorkoutInfo) {
+    public func sendData(content: WorkoutInfo) {
         self.connectivityObserver.sendingMessageSubject.send(content.message())
     }
     
