@@ -7,13 +7,16 @@ let package = Package(
     name: "FODDemoKit",
     platforms: [
       .iOS(.v15),
-      .watchOS(.v6)
+      .watchOS(.v9)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "FODDemoKit",
-            targets: ["FODDemoKit", "FODDemoKitWatch"]),
+            targets: ["FODDemoKit"]),
+        .library(
+            name: "FODDemoKitWatch",
+            targets: ["FODDemoKitWatch"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
