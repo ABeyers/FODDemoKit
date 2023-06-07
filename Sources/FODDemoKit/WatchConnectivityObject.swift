@@ -8,7 +8,7 @@
 import SwiftUI
 import SundialKit
 
-public class WatchConnectivityObject : NSObject, ObservableObject {
+public class WatchConnectivityObject : ObservableObject {
     
     // our ConnectivityObserver
     let connectivityObserver = ConnectivityObserver()
