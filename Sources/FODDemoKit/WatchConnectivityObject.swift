@@ -61,6 +61,10 @@ public class WatchConnectivityObject : NSObject, ObservableObject {
         self.connectivityObserver.sendingMessageSubject.send(content.message())
     }
     
+    public func sendMessage() {
+        self.connectivityObserver.sendingMessageSubject.send(["message" : "HERE"])
+    }
+    
     func setReactString() {
         reactRecieved = "SUCCESS"
     }

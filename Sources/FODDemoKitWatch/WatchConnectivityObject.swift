@@ -18,6 +18,7 @@ class WatchConnectivityObject : ObservableObject {
     let messageDecoder = MessageDecoder(messagableTypes: [WorkoutInfo.self])
 
     @Published var workoutInfo : WorkoutInfo?
+    @Published var messageFromPhone : String = "NO MESSAGE"
     
     init () {
         connectivityObserver
@@ -31,6 +32,14 @@ class WatchConnectivityObject : ObservableObject {
             .receive(on: DispatchQueue.main)
         // set it to our published property
             .assign(to: &self.$workoutInfo)
+        
+        connectivityObserver
+            .messageReceivedPublisher
+            .compactMap({ received in
+                received.message["message"] as? String
+            })
+            .receive(on: DispatchQueue.main)
+            .assign(to: &self.$messageFromPhone)
     }
     
     func activate () {

@@ -37,7 +37,7 @@ public struct WatchWorkoutView: View {
                 Image(systemName: "hourglass")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-                Text("Waiting For Class Info...")
+                Text(connectivityObject.messageFromPhone)
                 Spacer()
                 Button("Get Help") {
                     
