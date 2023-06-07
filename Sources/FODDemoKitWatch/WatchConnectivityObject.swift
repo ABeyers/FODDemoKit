@@ -20,8 +20,7 @@ public class WatchConnectivityObject : ObservableObject {
     @Published var workoutInfo : WorkoutInfo?
     @Published public var messageFromPhone : String = "NO MESSAGE"
     
-    public override init () {
-        super.init()
+    init () {
         connectivityObserver
             .messageReceivedPublisher
         // get the ``ConnectivityReceiveResult/message`` part of the ``ConnectivityReceiveResult``
