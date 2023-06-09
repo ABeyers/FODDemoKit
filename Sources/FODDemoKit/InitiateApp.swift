@@ -10,10 +10,31 @@ import SundialKit
 import SwiftUI
 
 public class InitiateApp {
-    @StateObject public var connectivityObject = WatchConnectivityObject()
+    public var connectivityObject = WatchConnectivityObject()
     
-    public init() {
+    public func linkWatch(){
         connectivityObject.activate()
+    }
+    
+    public func checkConnectivity() {
+        if connectivityObject.isPairedAppInstalled {
+            print("AppInstalled")
+        } else {
+            print("No installed")
+        }
+        if connectivityObject.isPaired {
+            print("Paired")
+        } else {
+            print("Not Paired")
+        }
+        if connectivityObject.isReachable {
+            print("Reachable")
+        } else {
+            print("Not Reachable")
+        }
+    }
+    
+    public func sendMessage() {
         connectivityObject.sendMessage()
     }
 }
