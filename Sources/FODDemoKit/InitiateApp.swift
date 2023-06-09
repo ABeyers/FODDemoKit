@@ -12,6 +12,8 @@ import SwiftUI
 public class InitiateApp {
     public var connectivityObject = WatchConnectivityObject()
     
+    public init() {}
+    
     public func linkWatch(){
         connectivityObject.activate()
     }
