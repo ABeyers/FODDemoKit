@@ -10,7 +10,7 @@ import SundialKit
 import SwiftUI
 
 public class InitiateWatchApp {
-    public var connectivityObject = WatchConnectivityObject()
+    var connectivityObject = WatchConnectivityObject()
     
     public init() {
         connectivityObject.activate()
@@ -35,7 +35,6 @@ public class InitiateWatchApp {
     }
     
     public func sendMessage() {
-        connectivityObject.sendMessage()
         guard let workout = WorkoutInfo(from: ["displayName" : "Alice", "age" : 32, "facilityId" : "FacilityID", "facilityName" : "San Diego", "activityTypeId" : 37, "activityName" : "running"])
         else {return}
         connectivityObject.sendData(content: workout)
