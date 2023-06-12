@@ -8,7 +8,7 @@
 import SwiftUI
 import SundialKit
 
-public class WatchConnectivityObject : ObservableObject {
+class WatchConnectivityObject : ObservableObject {
     
     // our ConnectivityObserver
     let connectivityObserver = ConnectivityObserver()
@@ -51,20 +51,13 @@ public class WatchConnectivityObject : ObservableObject {
             .assign(to: &self.$workoutEnded)
     }
     
-   public func activate () {
+   func activate () {
         // activate the WatchConnectivity session
         try! self.connectivityObserver.activate()
     }
     
-    public func sendData(content: WorkoutInfo) {
+    func sendData(content: WorkoutInfo) {
+        // send workout info to the watch
         self.connectivityObserver.sendingMessageSubject.send(content.message())
-    }
-    
-    public func sendMessage() {
-        self.connectivityObserver.sendingMessageSubject.send(["message" : "HERE"])
-    }
-    
-    func setReactString() {
-        reactRecieved = "SUCCESS"
     }
 }

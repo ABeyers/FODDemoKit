@@ -8,7 +8,7 @@
 import SwiftUI
 import SundialKit
 
-public class WatchConnectivityObject : ObservableObject {
+class WatchConnectivityObject : ObservableObject {
     
     // our ConnectivityObserver
     
@@ -18,7 +18,6 @@ public class WatchConnectivityObject : ObservableObject {
     let messageDecoder = MessageDecoder(messagableTypes: [WorkoutInfo.self])
     
     @Published var workoutInfo : WorkoutInfo?
-    @Published public var messageFromPhone : String = "NO MESSAGE"
     
     init () {
         connectivityObserver
@@ -32,22 +31,14 @@ public class WatchConnectivityObject : ObservableObject {
             .receive(on: DispatchQueue.main)
         // set it to our published property
             .assign(to: &self.$workoutInfo)
-        
-        connectivityObserver
-            .messageReceivedPublisher
-            .compactMap({ received in
-                received.message["message"] as? String
-            })
-            .receive(on: DispatchQueue.main)
-            .assign(to: &self.$messageFromPhone)
     }
     
-    public  func activate () {
+    func activate () {
         // activate the WatchConnectivity session
         try! self.connectivityObserver.activate()
     }
     
-    public func endWorkout() {
+    func endWorkout() {
         workoutInfo = nil
         self.connectivityObserver.sendingMessageSubject.send(["workoutEnded" : ""])
     }

@@ -9,15 +9,11 @@
 import SundialKit
 import SwiftUI
 
-public class InitiateApp {
+public class InitiateWatchApp {
     public var connectivityObject = WatchConnectivityObject()
     
     public init() {
         connectivityObject.activate()
-    }
-    
-    public func linkWatch(){
-        connectivityObject.sendMessage()
     }
     
     public func checkConnectivity() {
@@ -40,5 +36,8 @@ public class InitiateApp {
     
     public func sendMessage() {
         connectivityObject.sendMessage()
+        guard let workout = WorkoutInfo(from: ["displayName" : "Alice", "age" : 32, "facilityId" : "FacilityID", "facilityName" : "San Diego", "activityTypeId" : 37, "activityName" : "running"])
+        else {return}
+        connectivityObject.sendData(content: workout)
     }
 }

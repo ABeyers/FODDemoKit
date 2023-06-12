@@ -8,7 +8,7 @@
 import Foundation
 import SundialKit
 
-public struct WorkoutInfo: Messagable {
+struct WorkoutInfo: Messagable {
     var displayName : String
     var age : Int
     var facilityId : String
@@ -34,9 +34,9 @@ public struct WorkoutInfo: Messagable {
         self.activityName = activityName
     }
     
-    public static var key: String = "WorkoutInfo"
+    static var key: String = "WorkoutInfo"
     
-    public init?(from parameters: [String : Any]?) {
+    init?(from parameters: [String : Any]?) {
         guard let displayName = parameters?[Parameters.displayName.rawValue] as? String else {return nil}
         guard let age = parameters?[Parameters.age.rawValue] as? Int else {return nil}
         guard let facilityId = parameters?[Parameters.facilityId.rawValue] as? String else {return nil}
@@ -52,7 +52,7 @@ public struct WorkoutInfo: Messagable {
         self.activityName = activityName
     }
     
-    public func parameters() -> [String : Any] {
+    func parameters() -> [String : Any] {
         return [
             Parameters.displayName.rawValue : self.displayName,
             Parameters.age.rawValue : self.age,
