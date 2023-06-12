@@ -35,7 +35,7 @@ public class InitiateWatchApp {
     }
     
     public func sendMessage() {
-        guard let workout = WorkoutInfo(from: ["displayName" : "Alice", "age" : 32, "facilityId" : "FacilityID", "facilityName" : "San Diego", "activityTypeId" : 37, "activityName" : "running"])
+        guard let workout = WorkoutInfo(from: ["displayName" : "Alice", "age" : 32, "facilityId" : "FacilityID", "facilityName" : "Houston", "activityTypeId" : 37, "activityName" : "running"])
         else {return}
         connectivityObject.sendData(content: workout)
     }
