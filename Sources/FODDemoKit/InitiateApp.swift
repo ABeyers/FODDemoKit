@@ -12,10 +12,11 @@ import SwiftUI
 public class InitiateApp {
     public var connectivityObject = WatchConnectivityObject()
     
-    public init() {}
+    public init() {
+        connectivityObject.activate()
+    }
     
     public func linkWatch(){
-        connectivityObject.activate()
         connectivityObject.sendMessage()
     }
     
