@@ -16,6 +16,7 @@ public class InitiateApp {
     
     public func linkWatch(){
         connectivityObject.activate()
+        connectivityObject.sendMessage()
     }
     
     public func checkConnectivity() {
